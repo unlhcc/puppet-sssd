@@ -24,6 +24,12 @@ id_provider = ldap
 auth_provider = ldap
 ldap_uri = <%= @ldap_uri %>
 ldap_search_base = <%= @ldap_base %>
+<% if @ldap_user_search_base -%>
+ldap_user_search_base = <%= @ldap_user_search_base %>
+<% end -%>
+<% if @ldap_group_search_base -%>
+ldap_group_search_base = <%= @ldap_group_search_base %>
+<% end -%>
 <% if @ldap_tls_reqcert -%>
 ldap_tls_reqcert = <%= @ldap_tls_reqcert %>
 <% end -%>

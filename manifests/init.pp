@@ -5,6 +5,8 @@
 class sssd (
     $ldap_uri               = 'ldap://ldap.example.org',
     $ldap_base              = 'dc=example,dc=org',
+    $ldap_user_search_base  = undef,
+    $ldap_group_search_base = undef,
     $ldap_tls_reqcert       = undef,
     $ldap_tls_cacert        = undef,
     $ldap_tls_cacertdir     = undef,
@@ -33,4 +35,3 @@ class sssd (
     }
 
 }
-
