@@ -3,6 +3,8 @@
 #
 
 class sssd (
+    $cache_credentials      = 'false',
+    $enumerate              = 'false',
     $ldap_uri               = 'ldap://ldap.example.org',
     $ldap_base              = 'dc=example,dc=org',
     $ldap_user_search_base  = undef,

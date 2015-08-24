@@ -42,5 +42,5 @@ ldap_tls_cacertdir = <%= @ldap_tls_cacertdir %>
 <% if @ldap_id_use_start_tls -%>
 ldap_id_use_start_tls = <%= @ldap_id_use_start_tls %>
 <% end -%>
-cache_credentials = true
-enumerate = false
+cache_credentials = <%= @cache_credentials %>
+enumerate = <%= @enumerate %>
