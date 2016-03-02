@@ -3,8 +3,9 @@
 #
 
 class sssd (
-    $cache_credentials      = 'false',
-    $enumerate              = 'false',
+    $cache_credentials      = false,
+    $client_idle_timeout    = undef,
+    $enumerate              = false,
     $ldap_uri               = 'ldap://ldap.example.org',
     $ldap_base              = 'dc=example,dc=org',
     $ldap_user_search_base  = undef,
@@ -18,13 +19,13 @@ class sssd (
     package { 'sssd': ensure => present, }
 
     service { 'sssd':
-        ensure      => running,
-        name        => 'sssd',
-        enable      => true,
-        hasrestart  => true,
-        hasstatus   => true,
-        require     => Package['sssd'],
-        subscribe   => File['sssd.conf'],
+        ensure     => running,
+        name       => 'sssd',
+        enable     => true,
+        hasrestart => true,
+        hasstatus  => true,
+        require    => Package['sssd'],
+        subscribe  => File['sssd.conf'],
     }
 
     file { 'sssd.conf':
