@@ -17,6 +17,9 @@ domains = LDAP
 <% if @client_idle_timeout -%>
 client_idle_timeout = <%= @client_idle_timeout %>
 <% end -%>
+<% if @entry_negative_timeout -%>
+entry_negative_timeout = <%= @entry_negative_timeout %>
+<% end -%>
 
 
 [pam]
@@ -47,3 +50,6 @@ ldap_id_use_start_tls = <%= @ldap_id_use_start_tls %>
 <% end -%>
 cache_credentials = <%= @cache_credentials %>
 enumerate = <%= @enumerate %>
+<% if @refresh_expired_interval -%>
+refresh_expired_interval = <%= @refresh_expired_interval %>
+<% end -%>

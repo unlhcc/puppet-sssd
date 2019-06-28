@@ -3,17 +3,19 @@
 #
 
 class sssd (
-    $cache_credentials      = false,
-    $client_idle_timeout    = undef,
-    $enumerate              = false,
-    $ldap_uri               = 'ldap://ldap.example.org',
-    $ldap_base              = 'dc=example,dc=org',
-    $ldap_user_search_base  = undef,
-    $ldap_group_search_base = undef,
-    $ldap_tls_reqcert       = undef,
-    $ldap_tls_cacert        = undef,
-    $ldap_tls_cacertdir     = undef,
-    $ldap_id_use_start_tls  = undef,
+    $cache_credentials        = false,
+    $client_idle_timeout      = undef,
+    $entry_negative_timeout   = undef,
+    $enumerate                = false,
+    $ldap_uri                 = 'ldap://ldap.example.org',
+    $ldap_base                = 'dc=example,dc=org',
+    $ldap_user_search_base    = undef,
+    $ldap_group_search_base   = undef,
+    $ldap_tls_reqcert         = undef,
+    $ldap_tls_cacert          = undef,
+    $ldap_tls_cacertdir       = undef,
+    $ldap_id_use_start_tls    = undef,
+    $refresh_expired_interval = undef,
     ) {
 
     package { 'sssd': ensure => present, }
