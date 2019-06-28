@@ -5,6 +5,7 @@
 class sssd (
     $cache_credentials        = false,
     $client_idle_timeout      = undef,
+    $entry_cache_timeout      = undef,
     $entry_negative_timeout   = undef,
     $enumerate                = false,
     $ldap_uri                 = 'ldap://ldap.example.org',
