@@ -9,7 +9,7 @@
 
 [sssd]
 config_file_version = 2
-services = nss, pam
+services = <%= @services.join(', ') %>
 domains = LDAP
 
 
@@ -28,6 +28,9 @@ entry_negative_timeout = <%= @entry_negative_timeout %>
 [domain/LDAP]
 id_provider = ldap
 auth_provider = ldap
+<% if @access_provider -%>
+access_provider = <%= @access_provider %>
+<% end -%>
 ldap_uri = <%= @ldap_uri %>
 ldap_search_base = <%= @ldap_base %>
 <% if @ldap_user_search_base -%>
@@ -55,4 +58,7 @@ entry_cache_timeout = <%= @entry_cache_timeout %>
 <% end -%>
 <% if @refresh_expired_interval -%>
 refresh_expired_interval = <%= @refresh_expired_interval %>
+<% end -%>
+<% if @ldap_access_filter -%>
+ldap_access_filter = <%= @ldap_access_filter %>
 <% end -%>

@@ -3,6 +3,8 @@
 #
 
 class sssd (
+    $services                 = [ 'nss', 'pam' ],
+    $access_provider          = undef,
     $cache_credentials        = false,
     $client_idle_timeout      = undef,
     $entry_cache_timeout      = undef,
@@ -12,6 +14,7 @@ class sssd (
     $ldap_base                = 'dc=example,dc=org',
     $ldap_user_search_base    = undef,
     $ldap_group_search_base   = undef,
+    $ldap_access_filter       = undef,
     $ldap_tls_reqcert         = undef,
     $ldap_tls_cacert          = undef,
     $ldap_tls_cacertdir       = undef,
