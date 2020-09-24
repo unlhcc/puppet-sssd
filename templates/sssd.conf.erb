@@ -31,7 +31,10 @@ auth_provider = ldap
 <% if @access_provider -%>
 access_provider = <%= @access_provider %>
 <% end -%>
-ldap_uri = <%= @ldap_uri %>
+ldap_uri = <%= @ldap_uris_rand.join(', ') %>
+<% if @ldap_chpass_uri -%>
+ldap_chpass_uri = <%= @ldap_chpass_uri %>
+<% end -%>
 ldap_search_base = <%= @ldap_base %>
 <% if @ldap_user_search_base -%>
 ldap_user_search_base = <%= @ldap_user_search_base %>

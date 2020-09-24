@@ -10,7 +10,8 @@ class sssd (
     $entry_cache_timeout      = undef,
     $entry_negative_timeout   = undef,
     $enumerate                = false,
-    $ldap_uri                 = 'ldap://ldap.example.org',
+    $ldap_uris                = [ 'ldap://ldap.example.org', ],
+    $ldap_chpass_uri          = undef,
     $ldap_base                = 'dc=example,dc=org',
     $ldap_user_search_base    = undef,
     $ldap_group_search_base   = undef,
@@ -23,6 +24,8 @@ class sssd (
     ) {
 
     package { 'sssd': ensure => present, }
+
+    $ldap_uris_rand = fqdn_rotate($ldap_uris)
 
     service { 'sssd':
         ensure     => running,
