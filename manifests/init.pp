@@ -21,6 +21,7 @@ class sssd (
     $ldap_tls_cacertdir       = undef,
     $ldap_id_use_start_tls    = undef,
     $refresh_expired_interval = undef,
+    $sysconfig                = undef,
     ) {
 
     package { 'sssd': ensure => present, }
@@ -34,7 +35,7 @@ class sssd (
         hasrestart => true,
         hasstatus  => true,
         require    => Package['sssd'],
-        subscribe  => File['sssd.conf'],
+        subscribe  => File['sssd.conf', 'sysconfig'],
     }
 
     file { 'sssd.conf':
@@ -44,6 +45,15 @@ class sssd (
         mode    => '0600',
         require => Package['sssd'],
         content => template('sssd/sssd.conf.erb'),
+    }
+
+    file { 'sysconfig':
+        path    => '/etc/sysconfig/sssd',
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0600',
+        require => Package['sssd'],
+        content => template('sssd/etc.sysconfig.sssd.erb'),
     }
 
 }
